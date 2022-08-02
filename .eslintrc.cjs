@@ -32,6 +32,33 @@ module.exports = {
     }
   },
   rules: {
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'unknown',
+          'parent',
+          'sibling',
+          'index',
+          'object'
+        ],
+        pathGroups: [
+          {
+            pattern: 'src/**',
+            group: 'internal',
+            position: 'before'
+          }
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc'
+        }
+      }
+    ],
+    'import/no-cycle': 'error',
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
